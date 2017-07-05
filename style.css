@@ -1,0 +1,7 @@
+#current-entry, #current-entry:focus {
+  width: 90%;
+  padding: 1em;
+  font-size: 28px;
+  border: none;
+  outline: none !important;
+}
