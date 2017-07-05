@@ -1,7 +1,26 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 1em 2em;
+}
+
+#entry-date {
+  color: #bbb;
+  height: 1em;
+  margin-top: 0;
+}
+
 #current-entry, #current-entry:focus {
   width: 90%;
-  padding: 1em;
-  font-size: 28px;
+  height: 90%;
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
   border: none;
   outline: none !important;
+  resize: none;
+}
+
+#current-entry::placeholder {
+  color: #ddd;
 }
