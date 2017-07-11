@@ -1,13 +1,15 @@
 body {
+  -webkit-app-region: drag;
   font-family: sans-serif;
   font-size: 14px;
-  margin: 1em 2em;
+  margin: 1.5em 2em;
 }
 
 #entry-date {
   color: #bbb;
   height: 1em;
-  margin-top: 0;
+  margin: 0.5em 0;
+  text-align: right;
 }
 
 #current-entry, #current-entry:focus {
@@ -23,4 +25,14 @@ body {
 
 #current-entry::placeholder {
   color: #ddd;
+}
+
+.entry-options {
+  color: #bbb;
+}
+
+.entry-options a:hover {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
 }
