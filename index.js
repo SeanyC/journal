@@ -14,14 +14,38 @@ window.onload = () => {
         entryDateElement.innerText = entryDate.toLocaleString()
       }
       if (!entryOptions) {
-        entryOptions = document.createElement('p')
-        entryOptions.className = 'entry-options'
-        entryOptions.innerHTML = '<a>clear</a> | <a>done</a>'
-        entryContainer.appendChild(entryOptions)
+        createEntryTools()
       }
     } else {
       entryDate = ''
       entryDateElement.innerText = entryDate
     }
+  }
+
+  function createEntryTools () {
+    entryOptions = document.createElement('div')
+    entryOptions.className = 'entry-options'
+
+    var clearLink = document.createElement('a')
+    clearLink.innerText = 'clear'
+    clearLink.addEventListener('click', (e) => {
+      e.preventDefault()
+      currentEntryInput.value = ''
+      currentEntryInput.focus()
+    })
+
+    var doneLink = document.createElement('a')
+    doneLink.innerText = 'done'
+    doneLink.addEventListener('click', (e) => {
+      e.preventDefault()
+      console.log('f')
+      currentEntryInput.focus()
+    })
+
+    entryOptions.appendChild(clearLink)
+    entryOptions.appendChild(document.createTextNode(' | '))
+    entryOptions.appendChild(doneLink)
+
+    entryContainer.appendChild(entryOptions)
   }
 }
