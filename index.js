@@ -7,6 +7,7 @@ window.onload = () => {
 
   var entryDate
   var entryOptions
+
   function addEntryTools (e) {
     if (e.target.value) {
       if (!entryDate) {
@@ -17,9 +18,13 @@ window.onload = () => {
         createEntryTools()
       }
     } else {
-      entryDate = ''
-      entryDateElement.innerText = entryDate
+      clearEntryDate()
     }
+  }
+
+  function clearEntryDate () {
+    entryDate = ''
+    entryDateElement.innerText = entryDate
   }
 
   function createEntryTools () {
@@ -31,6 +36,7 @@ window.onload = () => {
     clearLink.addEventListener('click', (e) => {
       e.preventDefault()
       currentEntryInput.value = ''
+      clearEntryDate()
       currentEntryInput.focus()
     })
 
