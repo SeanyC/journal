@@ -3,10 +3,11 @@ window.onload = () => {
   const entryContainer = document.getElementById('container')
   const currentEntryInput = document.getElementById('current-entry')
   const entryDateElement = document.getElementById('entry-date')
+  const entryOptionsElement = document.getElementById('entry-options')
   currentEntryInput.addEventListener('input', addEntryTools)
 
   var entryDate
-  var entryOptions
+  var entryOptions = false
 
   function addEntryTools (e) {
     if (e.target.value) {
@@ -18,25 +19,19 @@ window.onload = () => {
         createEntryTools()
       }
     } else {
-      clearEntryDate()
+      clearTheTable()
     }
   }
 
-  function clearEntryDate () {
-    entryDate = ''
-    entryDateElement.innerText = entryDate
-  }
-
   function createEntryTools () {
-    entryOptions = document.createElement('div')
-    entryOptions.className = 'entry-options'
+    entryOptions = true
 
     var clearLink = document.createElement('a')
     clearLink.innerText = 'clear'
     clearLink.addEventListener('click', (e) => {
       e.preventDefault()
       currentEntryInput.value = ''
-      clearEntryDate()
+      clearTheTable()
       currentEntryInput.focus()
     })
 
@@ -44,14 +39,28 @@ window.onload = () => {
     doneLink.innerText = 'done'
     doneLink.addEventListener('click', (e) => {
       e.preventDefault()
-      console.log('f')
+      console.log('done -- save')
       currentEntryInput.focus()
     })
 
-    entryOptions.appendChild(clearLink)
-    entryOptions.appendChild(document.createTextNode(' | '))
-    entryOptions.appendChild(doneLink)
-
-    entryContainer.appendChild(entryOptions)
+    entryOptionsElement.appendChild(clearLink)
+    entryOptionsElement.appendChild(document.createTextNode(' | '))
+    entryOptionsElement.appendChild(doneLink)
   }
+
+  function clearTheTable() {
+    clearEntryTools()
+    clearEntryDate()
+  }
+
+  function clearEntryTools () {
+    entryOptions = ''
+    entryOptionsElement.innerText = entryOptions
+  }
+
+  function clearEntryDate () {
+    entryDate = ''
+    entryDateElement.innerText = entryDate
+  }
+
 }

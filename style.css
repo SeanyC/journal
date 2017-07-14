@@ -27,11 +27,11 @@ body {
   color: #ddd;
 }
 
-.entry-options {
+#entry-options {
   color: #bbb;
 }
 
-.entry-options a:hover {
+#entry-options a:hover {
   color: black;
   text-decoration: underline;
   cursor: pointer;
